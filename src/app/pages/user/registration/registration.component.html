@@ -1,0 +1,20 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h1 class="h3 mb-3 fw-normal">Register</h1>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control bg-body-secondary" id="floatingName" placeholder="Name" formControlName="name">
+    <label for="floatingName">Name</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control bg-body-secondary" id="floatingEmail" placeholder="Email" formControlName="email">
+    <label for="floatingEmail">Email</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control bg-body-secondary" id="floatingPassword" placeholder="Password" formControlName="password">
+    <label for="floatingPassword">******</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" class="form-control bg-body-secondary" id="floatingConfirmPassword" placeholder="ConfirmPassword" formControlName="confirmPassword">
+    <label for="floatingConfirmPassword">******</label>
+  </div>
+  <button class="btn btn-primary w-100 py-2" type="submit">Register</button>
+</form>
