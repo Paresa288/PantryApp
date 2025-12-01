@@ -4,7 +4,7 @@
 </div>
 
 <div class="modal-body">
-  <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="addItemForm" novalidate>
     <!-- NAME -->
     <div class="form-floating">
       <input type="text" class="form-control mb-3 bg-body-secondary" id="floatingName" placeholder="Name"
@@ -52,14 +52,14 @@
         <div class="form-floating">
           <select type="number" class="form-select bg-body-secondary" id="floatingLocation" placeholder="Location"
             formControlName="locName" role="button">
-            @for (location of locations(); track location.id) {
+            @for (location of locationsService.locations(); track location.id) {
             <option value="{{ location.id }}">{{location.name}}</option>
             }
           </select>
           <label for="floatingLocation">Storage Location</label>
         </div>
       </div>
-      <button class="btn btn-primary w-100" (click)="oppenAddLocation()"><span><i
+      <button class="btn btn-primary w-100" (click)="openAddLocation()"><span><i
             class="fa fa-plus-square text-white"></i>Add a new location</span></button>
     </div>
 

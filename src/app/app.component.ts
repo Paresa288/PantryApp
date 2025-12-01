@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "./shared/layout/navbar/navbar.component";
+import { PageLayoutComponent } from "./shared/layout/page-layout/page-layout.component";
+import { User } from './core/models/user';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [NavbarComponent, PageLayoutComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: ''
 })
 export class AppComponent {
   title = 'PantryApp';
-  user = { id: 3, name: 'Pablo' }; // Example user object
+  user:User = { id: 1, name: 'Pablo', familyId: 1 };
 }

@@ -1,8 +1,8 @@
 import { Component, inject, input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { Location } from '../../types/location';
-import { LocationsService } from '../../shared/services/locations.service';
+import { Location } from '../../../core/models/location';
+import { LocationsService } from '../../../core/services/locations.service';
 
 @Component({
   selector: 'app-add-location-form',

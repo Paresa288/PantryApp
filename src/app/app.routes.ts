@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { UserComponent } from './pages/user/user.component';
-
+import { UserComponent } from './core/user/user.component';
+import { StorageLocationComponent } from './features/storage-location/storage-location.component';
 export const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full' },
-  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: '/:userId/:familyId', pathMatch: 'full' },
+  {path: ':userId/:familyId', component: StorageLocationComponent},
   {path: 'user/:userId', component: UserComponent},
 ];

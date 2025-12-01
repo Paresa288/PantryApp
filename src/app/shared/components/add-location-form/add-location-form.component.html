@@ -3,7 +3,7 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
 </div>
 <div class="modal-body">
-  <form [formGroup]="addLocationForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="addLocationForm" novalidate>
     <div class="form-floating">
       <input type="text" class="form-control mb-3 bg-body-secondary" id="floatingLocName" placeholder="Location Name"
         formControlName="locName">

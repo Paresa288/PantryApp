@@ -1,25 +1,39 @@
-import { Injectable } from '@angular/core';
-import { Item } from '../../types/item'
-import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { Item } from '../../core/models/item';
+import { ItemsService } from '../../core/services/items.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ItemsServiceService {
-  readonly API_URL = "https://localhost:7157/api/Items"
+export class _ItemsService {
+  private itemsService = inject(ItemsService)
+  private _items = signal<Item[]>([]);
+  public items = this._items.asReadonly();
   
-  constructor(private http: HttpClient) {}
-
-  getItems() {
-    return this.http.get<Item[]>(this.API_URL);
+  load() : void{
+    this.itemsService.getItems().subscribe({
+      next: (i) => {
+        this._items.set(i);
+      }
+    })
   }
 
-  createItem(item: Item) {
-    return this.http.post<Item>(this.API_URL, item);
+  create(item: Item) :void{
+    this.itemsService.createItem(item).subscribe({
+      next: (i) => {
+        this._items.update(items => [...items, i]);
+      }
+    })
   }
 
-  deleteItem(itemId: number) {
-    return this.http.delete(`${this.API_URL}/${itemId}`);
+  delete(id:number) {
+    this.itemsService.deleteItem(id).subscribe({
+      next: () => {
+        this._items.update((items) => items.filter((item) => {
+          item.id != id;
+        }))
+      }
+    })
   }
 }

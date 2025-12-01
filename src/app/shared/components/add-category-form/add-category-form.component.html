@@ -3,7 +3,7 @@
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
 </div>
 <div class="modal-body">
-  <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="addCategoryForm" novalidate>
     <div class="form-floating">
       <input type="text" class="form-control mb-3 bg-body-secondary" id="floatingCatName" placeholder="Category Name"
         formControlName="catName">
